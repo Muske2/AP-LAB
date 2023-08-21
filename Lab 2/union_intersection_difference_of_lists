@@ -1,0 +1,30 @@
+list1=input("Enter numbers of list1: ")
+l1=list1.split()
+list2=input("Enter numbers of list2: ")
+l2=list2.split()
+l3=[]
+print("LIST 1: ",l1)
+print("LIST 2: ",l2)
+print("UNION")
+for i in l1:
+    if i not in l3:
+        l3.append(i)
+for i in l2:
+    if i not in l3:
+        l3.append(i)
+print(l3)
+l3.clear()
+print("INTERSECTION")
+for i in l1:
+    for j in l2:
+        if i==j:
+            l3.append(i)
+print(l3)
+print("DIFFERENCE")
+l3=[]
+l3=l1
+for i in l2:
+    for j in l3:
+        if i==j:
+            l3.remove(i)
+print(l3)
