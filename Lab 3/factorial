@@ -1,0 +1,11 @@
+def fact(n):
+    """ Return the factorial of the given number""" #documentation string/docstring. Command fact.__doc__ prints this string
+    r=1
+    while n>0:
+        r=r*n
+        n=n-1
+    return r
+print("FACTORIAL FUNCTION")
+num=int(input("Enter n: "))
+print(fact(num))
+print(fact.__doc__)
