@@ -1,0 +1,40 @@
+# Creating a tuple
+fruits = ("apple", "banana", "cherry", "date")
+
+# Accessing elements of a tuple
+print("First fruit:", fruits[0])
+print("Second fruit:", fruits[1])
+print("Last fruit:", fruits[-1])
+
+# Iterating through a tuple
+print("\nAll fruits:")
+for fruit in fruits:
+    print(fruit)
+
+# Tuple packing and unpacking
+x = 10
+y = 20
+coordinates = (x, y)  # Tuple packing
+print("\nCoordinates:", coordinates)
+
+a, b = coordinates  # Tuple unpacking
+print("a:", a)
+print("b:", b)
+
+# Tuple slicing
+print("\nSliced tuple:", fruits[1:3])
+
+# Tuple length
+print("\nNumber of fruits in the tuple:", len(fruits))
+
+# Check if an item exists in a tuple
+if "cherry" in fruits:
+    print("Cherry is in the tuple")
+
+# Count occurrences of an item in a tuple
+count = fruits.count("banana")
+print("Number of bananas in the tuple:", count)
+
+# Find the index of an item in a tuple
+index = fruits.index("date")
+print("Index of 'date' in the tuple:", index)
