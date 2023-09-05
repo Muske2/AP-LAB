@@ -1,0 +1,53 @@
+import sqlite3
+#create a Connection object
+conn=sqlite3.connect('test.db')
+print("Opened database successfully")
+
+conn.execute('''CREATE TABLE IF NOT EXISTS COMPANY
+            (ID INT PRIMARY KEY  NOT NULL,
+            NAME      TEXT     NOT NULL,
+            AGE        INT  NOT NULL,
+            ADDRESS    TEXT,
+            SALARY     REAL);''')
+print("Table created successfully")
+
+conn.execute("INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)\
+        VALUES (1,'Michael',32,'Pune',200000.00)");
+
+conn.execute("INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)\
+        VALUES (2,'Jim',25,'Delhi',25000.00)");
+
+conn.execute("INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)\
+        VALUES (3,'Paul',29,'Chennai',30000.00)");
+
+conn.execute("INSERT INTO COMPANY (ID,NAME,AGE,ADDRESS,SALARY)\
+        VALUES (4,'Mark',25,'Bhubaneshwar',25000.00)");
+
+print("After insert")
+cursor=conn.execute("SELECT id,name,address,salary from COMPANY")
+for row in cursor:
+    print("ID = ",row[0])
+    print("NAME= ",row[1])
+    print("ADDRESS = ",row[2])
+    print("SALARY = ",row[3],"\n")
+
+conn.execute("UPDATE COMPANY set SALARY=250000 where ID=1")
+conn.commit
+print("After update:")
+cursor=conn.execute("SELECT id,name,address,salary from COMPANY")
+for row in cursor:
+    print("ID = ",row[0])
+    print("NAME= ",row[1])
+    print("ADDRESS = ",row[2])
+    print("SALARY = ",row[3],"\n")
+
+conn.execute("DELETE from COMPANY where ID=3;")
+conn.commit
+cursor=conn.execute("SELECT id,name,address,salary from COMPANY")
+for row in cursor:
+    print("ID = ",row[0])
+    print("NAME= ",row[1])
+    print("ADDRESS = ",row[2])
+    print("SALARY = ",row[3],"\n")
+
+print("Operation done successfully")
